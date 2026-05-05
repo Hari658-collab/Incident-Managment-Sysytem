@@ -8,7 +8,7 @@ https://github.com/Hari658-collab/ims-project
 
 ---
 ## 🏗️ Architecture Diagram
-"C:\Users\hp\Downloads\IMS-Architecture Diagram.png"
+IMS-Architecture Diagram.png
 
 ---
 ###🔄 Flow
