@@ -10,8 +10,21 @@ https://github.com/Hari658-collab/Incident-Managment-Sysytem
 ## 🏗️ Architecture Diagram
 IMS-Architecture Diagram.png
 
+This system follows an event-driven architecture for handling high-volume signals.
+
+- React frontend provides incident dashboard
+- Node.js backend receives signals via REST API
+- Redis queue handles asynchronous processing
+- Worker processes signals and applies debouncing logic
+- MongoDB stores raw signals (audit log)
+- PostgreSQL stores incidents and RCA (source of truth)
+- Redis cache improves dashboard performance
+
+This design ensures scalability, fault tolerance, and efficient processing.
+
 ---
 ###🔄 Flow
+
 Client → Backend API → Redis Queue → Worker → MongoDB + PostgreSQL → React Dashboard
 
 ---
