@@ -62,6 +62,7 @@ Client → Backend API → Redis Queue → Worker → MongoDB + PostgreSQL → R
 ### 1. Clone Repository
 
 git clone https://github.com/Hari658-collab/Incident-Managment-Sysytem
+
 cd ims-project
 
 ### 2. RUN Application
