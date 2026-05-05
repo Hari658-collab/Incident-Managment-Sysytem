@@ -1,15 +1,19 @@
-#🚨 Incident Management System (IMS)
+# 🚨 Incident Management System (IMS)
 
 A resilient, scalable Incident Management System designed to handle high-volume signals, process them asynchronously, and manage incident workflows with mandatory RCA validation.
+
 ---
 ## 🔗 GitHub Repository
 https://github.com/Hari658-collab/ims-project
+
 ---
 ## 🏗️ Architecture Diagram
-IMS-Architecture Diagram.png
+"C:\Users\hp\Downloads\IMS-Architecture Diagram.png"
+
 ---
 ###🔄 Flow
 Client → Backend API → Redis Queue → Worker → MongoDB + PostgreSQL → React Dashboard
+
 ---
 ## ⚙️ Tech Stack
 
@@ -19,6 +23,7 @@ Client → Backend API → Redis Queue → Worker → MongoDB + PostgreSQL → R
 - **NoSQL (Signals)**: MongoDB
 - **RDBMS (Work Items)**: PostgreSQL
 - **Containerization**: Docker & Docker Compose
+  
 ---
 
 ## 🚀 Features
@@ -36,7 +41,8 @@ Client → Backend API → Redis Queue → Worker → MongoDB + PostgreSQL → R
 - Rate limiting support (basic)
 - Retry logic for DB failures
 - Throughput logging (Signals/sec)
----
+  
+-------
 
 ## 🐳 Setup Instructions (Docker)
 
