@@ -4,7 +4,7 @@ A resilient, scalable Incident Management System designed to handle high-volume 
 
 ---
 ## 🔗 GitHub Repository
-https://github.com/Hari658-collab/ims-project
+https://github.com/Hari658-collab/Incident-Managment-Sysytem
 
 ---
 ## 🏗️ Architecture Diagram
@@ -48,7 +48,7 @@ Client → Backend API → Redis Queue → Worker → MongoDB + PostgreSQL → R
 
 ### 1. Clone Repository
 
-git clone https://github.com/Hari658-collab/ims-project
+git clone https://github.com/Hari658-collab/Incident-Managment-Sysytem
 cd ims-project
 
 ### 2. RUN Application
