@@ -216,6 +216,38 @@ ims-project/
 
 --------
 
+## ⚠️ Challenges & Troubleshooting
+
+* Redis is successfully connected and the worker process is running.
+
+* Signals were initially not being processed (`Signals/sec: 0`)
+
+  * **Root cause:** Missing `/signals` API route
+  * **Fix:** Implemented POST `/signals` endpoint to push data into Redis queue
+
+* MongoDB connection issue:
+  `getaddrinfo ENOTFOUND mongo`
+
+  * **Root cause:** Incorrect hostname resolution between local and Docker environments
+  * **Fix:** Updated connection string based on execution environment (`localhost` / service name)
+
+* API testing challenges on Windows:
+
+  * Default `curl` command was not working properly
+  * **Fix:** Used `curl.exe` for correct execution
+
+* Docker container issues:
+
+  * Faced delays/stuck containers during execution
+  * **Fix:** Restarted Docker and removed stuck containers
+
+### Summary
+
+The system components (backend, worker, Redis) are functioning correctly.
+Issues encountered were mainly configuration and environment-related and were resolved through step-by-step debugging.
+
+---------
+
 ## 📌 Submission Notes
 
 - Fully working application using Docker
