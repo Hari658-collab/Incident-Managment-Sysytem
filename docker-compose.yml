@@ -1,0 +1,66 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: ims-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: imsdb
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    container_name: ims-redis
+    ports:
+      - "6379:6379"
+
+  mongo:
+    image: mongo:6.0.13
+    container_name: ims-mongo
+    ports:
+      - "27017:27017"
+
+  backend:
+    build: ./backend
+    container_name: ims-backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - redis
+      - mongo
+    environment:
+      PORT: 3000
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: imsdb
+      REDIS_URL: redis://redis:6379
+      MONGO_URL: mongodb://mongo:27017/ims
+
+  worker:
+    build: ./backend
+    container_name: ims-worker
+    command: node worker.js
+    depends_on:
+      - postgres
+      - redis
+      - mongo
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: imsdb
+      REDIS_URL: redis://redis:6379
+      MONGO_URL: mongodb://mongo:27017/ims
+
+  frontend:
+    build: ./frontend
+    container_name: ims-frontend
+    ports:
+      - "3001:3000"
+    depends_on:
+      - backend
